@@ -23,17 +23,28 @@ function calculateValue(){
     totalTimeInvestMonthInput = document.getElementById("totalTimeInvestMonth").value;
     totalTimeHoldMonthInput = document.getElementById("totalTimeHoldMonth").value;
     
+
     principal = parseFloat(principalInput);
     rateOfInterest = parseFloat(rateOfInterestInput);
     totalTimeInvestMonth = parseInt(totalTimeInvestMonthInput);
     totalTimeHoldMonth = parseInt(totalTimeHoldMonthInput);
     
+
     compoundedInterest = rateOfInterest / 1200;
     futureValueBeforeHold = Math.round(principal * (Math.pow((1 + compoundedInterest), totalTimeInvestMonth) - 1) * (1 + compoundedInterest) / compoundedInterest);
-    futureValue = Math.round(futureValueBeforeHold * (Math.pow((1 + rateOfInterest/100), (totalTimeHoldMonth/12))));
     
+    
+    if(isNaN(totalTimeHoldMonth) || totalTimeHoldMonth == 0){
+        futureValue = futureValueBeforeHold;
+    }
+    else{
+        futureValue = Math.round(futureValueBeforeHold * (Math.pow((1 + rateOfInterest/100), (totalTimeHoldMonth/12))));
+    }
+    
+
     depositAmount = principal * totalTimeInvestMonth;
     totalInterest = (futureValue - depositAmount);
+
 
     if(isNaN(depositAmount) || depositAmount == 0 || isNaN(totalTimeInvestMonth) || totalTimeInvestMonth == 0){
         depositAmount = 0;
@@ -41,18 +52,36 @@ function calculateValue(){
         futureValue = 0;
     }
 
-    if(isNaN(rateOfInterest) || rateOfInterest == 0 || isNaN(totalTimeHoldMonth)){
+    if(isNaN(rateOfInterest) || rateOfInterest == 0){
         totalInterest = 0;
         futureValue = 0;
     }
 
-    document.getElementById("depositAmount").innerHTML = depositAmount.toString();
-    document.getElementById("totalInterest").innerHTML = totalInterest.toString();
-    document.getElementById("futureValue").innerHTML = futureValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    if(futureValue != 0){
-        document.getElementById('futureValueWords').innerHTML = " ( " + inWords(futureValue) + ")";
+    
+    if(isNaN(depositAmount) || depositAmount == 0){
+        document.getElementById("depositAmount").innerHTML = "0";
+        document.getElementById("depositAmountWords").innerHTML = "";
     }
     else{
-        document.getElementById('futureValueWords').innerHTML = "";
+        document.getElementById("depositAmount").innerHTML = depositAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById("depositAmountWords").innerHTML = " ( " + inWords(depositAmount) + ")";
+    }
+
+    if(isNaN(totalInterest) || totalInterest == 0){
+        document.getElementById("totalInterest").innerHTML = "0";
+        document.getElementById("totalInterestWords").innerHTML = "";
+    }
+    else{
+        document.getElementById("totalInterest").innerHTML = totalInterest.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById("totalInterestWords").innerHTML = " ( " + inWords(totalInterest) + ")";
+    }
+
+    if(isNaN(futureValue) || futureValue == 0){
+        document.getElementById("futureValue").innerHTML = "0";
+        document.getElementById("futureValueWords").innerHTML = "";
+    }
+    else{
+        document.getElementById("futureValue").innerHTML = futureValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById("futureValueWords").innerHTML = " ( " + inWords(futureValue) + ")";
     }
 }
