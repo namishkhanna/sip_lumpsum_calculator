@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SIP LUMPSUM CACULATOR (Monthly)</title>
+        
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <script src="./js/monthly.js"></script>
+        <script src="./js/jquery.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <h1 style="padding-top: 5%; text-align: center; color: rgb(22, 69, 114);">SIP LUMPSUM CALCULATOR (Monthly)</h1>
+        <div class="container" style="padding-left: 20%;">
+            
+            <br>
+            <form role="form">
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label>Total Amount you want to Invest Monthly:</label>
+                        <input type="text" class="form-control" name="principal" id="principal" placeholder="Principal" onkeyup="calculateValue();" required/>
+                    </div>
+                </div>
+        
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label>Expected Rate of Interest per Annum:</label>
+                        <input type="text" class="form-control" name="rateOfInterest" id="rateOfInterest" placeholder="Rate of Interest" onkeyup="calculateValue();" required/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label>Total Time you want to Invest(Month):</label>
+                        <input type="text" class="form-control"name="totalTimeInvestMonth" id="totalTimeInvestMonth" placeholder="Total Time to Invest" onkeyup="calculateValue();" required />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label>Total Time you want to Hold after Investment Period(Month):</label>
+                        <input type="text" class="form-control" name="totalTimeHoldMonth" id="totalTimeHoldMonth" placeholder="Total Time to Hold" onkeyup="calculateValue();" required/>
+                    </div>
+                </div>
+            </form>
+
+            <br><br>
+            <p><b style="font-size: 3ex;">Total Amount Deposited: </b><a id="depositAmount" style="font-size: 2.5ex;">0</a><a id="depositAmountWords" style="font-size: 2.5ex;"></a></p>
+            <p><b style="font-size: 3ex;">Total Interest Earned: </b><a id="totalInterest" style="font-size: 2.5ex;">0</a><a id="totalInterestWords" style="font-size: 2.5ex;"></a></p>
+            <p><b style="font-size: 3ex;">Maturity Amount: </b><a id="futureValue" style="font-size: 2.5ex;">0</a><a id="futureValueWords" style="font-size: 2.5ex;"></a></p>
+
+        </div>
+    </body>
+</html>
