@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIP LUMPSUM CACULATOR</title>
-    <script src="index.js"></script>
-</head>
-<body>
-    <h1>SIP LUMPSUM CALCULATOR</h1>
-    <h4>Total Amount you want to Invest: <input type="text" name="principal" id="principal" placeholder="Principal" onkeyup="calculateValue();" required></h4>
-    <h4>Expected Rate of Interest: <input type="text" name="rateOfInterest" id="rateOfInterest" placeholder="Rate of Interest" onkeyup="calculateValue();" required></h4>
-    <h4>Total Time you want to Invest(Month): <input type="text" name="totalTimeInvestMonth" id="totalTimeInvestMonth" placeholder="Total Time to Invest" onkeyup="calculateValue();" required></h4>
-    <h4>Total Time you want to Hold after Investment Period(Month): <input type="text" name="totalTimeHoldMonth" id="totalTimeHoldMonth" placeholder="Total Time to Hold" onkeyup="calculateValue();" required></h4>
-
-    <br>
-
-    <p><b>Total Amount Deposited: </b><a id="depositAmount">0</a><a id="depositAmountWords"></a></p>
-    <p><b>Total Interest Earned: </b><a id="totalInterest">0</a><a id="totalInterestWords"></a></p>
-    <p><b>Maturity Amount: </b><a id="futureValue">0</a><a id="futureValueWords"></a></p>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SIP LUMPSUM CALCULATOR</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container" style="text-align: center; padding-top: 15%;">
+            <h1 style="color: rgb(22, 69, 114);">SIP LUMPSUM CALCULATOR</h1>
+            <br>
+            <button class="btn btn-info btn-lg" onclick="window.location.href='yearly.html'">Yearly</button>
+            <button class="btn btn-info btn-lg" onclick="window.location.href='monthly.html'">Monthly</button>
+        </div>
+    </body>
 </html>
